@@ -1,0 +1,1 @@
+export {default as CompaniesTable} from './ui/companies-table'

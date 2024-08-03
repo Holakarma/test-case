@@ -1,0 +1,1 @@
+export const generateID = () => `${Date.now().toString().slice(-3)}${Math.round(Math.random() * 10000)}`;
