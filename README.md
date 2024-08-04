@@ -1,5 +1,7 @@
 # Test case
 
+github Pages: https://holakarma.github.io/test-case/
+
 Отображение списка компаний
 
 Для запуска локального сервера
