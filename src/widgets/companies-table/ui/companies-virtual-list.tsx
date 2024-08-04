@@ -38,11 +38,14 @@ const CompaniesVirtualList: FC<CompaniesVirtualListProps> = (
     }, [])
 
     return (
-        <Box sx={{height: viewportHeight, position: 'relative', overflowY: 'auto'}}
-             onScroll={handleScroll}
-             spacing={2}
+        <Box
+            sx={{
+                height: companies.length * itemHeight > viewportHeight ? viewportHeight : 'auto',
+                position: 'relative', overflowY: 'auto'
+            }}
+            onScroll={handleScroll}
         >
-            <Box height={itemHeight * companies.length}>
+            <Box height={companies.length ? itemHeight * companies.length : 'auto'}>
 
                 {companies.length ? companies.map((company, id) => {
                         if (id < visibleRange.startIndex || id > visibleRange.endIndex) return null;
@@ -69,14 +72,17 @@ const CompaniesVirtualList: FC<CompaniesVirtualListProps> = (
                             <Grid item xs={6} alignSelf="center">
                                 <EditCompany company={company} field="name"/>
                             </Grid>
-                            <Grid item alignSelf="center">
-                                <EditCompany company={company} field="address"/>
+                            <Grid item xs={5} alignSelf="center">
+                                <Box pr={1}>
+                                    <EditCompany company={company} field="address"/>
+                                </Box>
                             </Grid>
                         </Grid>
                     }) :
-                    <Box>
-                        <Typography>Список пуст.</Typography>
-                    </Box>}
+                    <Box paddingBlock={2}>
+                        <Typography textAlign="center">Список пуст.</Typography>
+                    </Box>
+                }
             </Box>
 
         </Box>

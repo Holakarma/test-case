@@ -65,18 +65,26 @@ const CompaniesTable = () => {
             </Toolbar>
             <Paper>
                 <Box sx={{minWidth: 650}}>
-                    <Grid container columnSpacing={2}>
-                        <Grid item xs={1} alignSelf="center" textAlign="center" paddingBlock={1}>
-                            <Checkbox
-                                indeterminate={selected.length === companies.length}
-                                checked={!!selected.length}
-                                onChange={() => changeAllCompanies()}
-                                inputProps={{'aria-label': 'controlled'}}
-                            />
+                    <Box borderBottom={"1px solid"}>
+                        <Grid
+                            container
+                            paddingBlock={2}
+                            pr={'8px'} // scrollbar width
+                            columnSpacing={2}
+                        >
+                            <Grid item xs={1} alignSelf="center" textAlign="center"
+                            >
+                                <Checkbox
+                                    indeterminate={selected.length === companies.length}
+                                    checked={!!selected.length}
+                                    onChange={() => changeAllCompanies()}
+                                    inputProps={{'aria-label': 'controlled'}}
+                                />
+                            </Grid>
+                            <Grid item xs={6} alignSelf="center" paddingBlock={1} fontWeight="600">Название</Grid>
+                            <Grid item xs={5} alignSelf="center" paddingBlock={1} fontWeight="600">Адрес</Grid>
                         </Grid>
-                        <Grid item xs={6} alignSelf="center" paddingBlock={1} fontWeight="600">Название</Grid>
-                        <Grid item xs={5} alignSelf="center" paddingBlock={1} fontWeight="600">Адрес</Grid>
-                    </Grid>
+                    </Box>
                     <CompaniesVirtualList
                         companies={companies}
                         selected={selected}

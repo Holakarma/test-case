@@ -25,10 +25,7 @@ const companiesSlice = createSlice({
             state.companies.unshift({...action.payload, id: generateID()});
         },
         deleteCompany: (state, action: PayloadAction<string>) => {
-            const index = companies.findIndex(c => c.id === action.payload)
-            if (index !== -1) {
-                state.companies.splice(index, 1);
-            }
+            state.companies.splice(companies.findIndex(c => c.id === action.payload), 1);
         },
         deleteCompanies: (state, action: PayloadAction<string[]>) => {
             action.payload.forEach(
