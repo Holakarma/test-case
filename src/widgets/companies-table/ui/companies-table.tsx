@@ -63,7 +63,7 @@ const CompaniesTable = () => {
                         <AddCompanyModal/>}
                 </Stack>
             </Toolbar>
-            <Paper>
+            <Paper sx={{overflowX: "auto"}}>
                 <Box sx={{minWidth: 650}}>
                     <Box borderBottom={"1px solid"}>
                         <Grid
@@ -93,9 +93,12 @@ const CompaniesTable = () => {
                         onCompanyChange={pickOneCompany}
                     />
                 </Box>
-            </Paper>
         </Box>
-    );
+
+</Paper>
+</Box>
+)
+    ;
 };
 
 export default CompaniesTable;
